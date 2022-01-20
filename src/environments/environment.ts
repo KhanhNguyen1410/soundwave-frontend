@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
+  production: true,
   firebaseConfig: {
     // apiKey: 'AIzaSyAaF7cyqh4DoWEU2TkDXnUeFe0Le10uH6A',
     // authDomain: 'sound-wave-9d45d.firebaseapp.com',
@@ -24,9 +24,6 @@ export const environment = {
   },
   apiUrl: 'https://soundwave-project.herokuapp.com',
 };
-
-
-
 
 /*
  * For easier debugging in development mode, you can import the following file
