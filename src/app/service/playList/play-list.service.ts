@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
-import {Playlist} from '../../model/playList/playlist';
-import {Observable} from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment.prod';
+import { Playlist } from '../../model/playList/playlist';
+import { Observable } from 'rxjs';
 
 const URL_API = `${environment.apiUrl}`;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlayListService {
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   savePlayList(playList: Playlist): Observable<any> {
     return this.httpClient.post<Playlist>(URL_API + `/playlists`, playList);
@@ -27,7 +26,14 @@ export class PlayListService {
   getMyPlaylists(id: number): Observable<any> {
     return this.httpClient.get<Playlist[]>(URL_API + `/playlists/user/${id}`);
   }
-  updateMyPlaylist(p_id: number, u_id: number, playlist: Playlist): Observable<any> {
-    return this.httpClient.put<Playlist>(URL_API + `/playlists/${p_id}/${u_id}`,playlist );
+  updateMyPlaylist(
+    p_id: number,
+    u_id: number,
+    playlist: Playlist
+  ): Observable<any> {
+    return this.httpClient.put<Playlist>(
+      URL_API + `/playlists/${p_id}/${u_id}`,
+      playlist
+    );
   }
 }

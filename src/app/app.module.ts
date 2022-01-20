@@ -13,24 +13,23 @@ import { ResetpasswordComponent } from './client/user/resetpassword/resetpasswor
 import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './landing-page/header/header.component';
 import { FooterComponent } from './landing-page/footer/footer.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {AngularFireStorageModule} from '@angular/fire/storage';
-import {AngularFireModule} from '@angular/fire';
-import {environment} from '../environments/environment';
-import {JwtInterceptor} from './helper/jwt-interceptor';
-import {ErrorInterceptor} from './helper/error-interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment.prod';
+import { JwtInterceptor } from './helper/jwt-interceptor';
+import { ErrorInterceptor } from './helper/error-interceptor';
 import { HomeComponent } from './landing-page/home/home.component';
-import {NgbDropdownModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SearchSongComponent } from './song/search-song/search-song.component';
 import { DetailSongComponent } from './song/detail-song/detail-song.component';
 import { PlaylistDetailsComponent } from './playlist/playlist-details/playlist-details.component';
 import { PlayingSongsComponent } from './landing-page/playing-songs/playing-songs.component';
 import { MenuComponent } from './landing-page/menu/menu.component';
-import {CommentListComponent} from './song/comment-list/comment-list.component';
+import { CommentListComponent } from './song/comment-list/comment-list.component';
 import { TermOfUserComponent } from './client/user/term-of-user/term-of-user.component';
 import { CommentPlaylistComponent } from './playlist/comment-playlist/comment-playlist.component';
-
 
 @NgModule({
   declarations: [
@@ -54,7 +53,7 @@ import { CommentPlaylistComponent } from './playlist/comment-playlist/comment-pl
     PlaylistDetailsComponent,
     CommentPlaylistComponent,
     TermOfUserComponent,
-    CommentPlaylistComponent
+    CommentPlaylistComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,14 +64,14 @@ import { CommentPlaylistComponent } from './playlist/comment-playlist/comment-pl
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebaseConfig, 'cloud'),
     NgbDropdownModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 
 // @ts-ignore
-export class AppModule { }
+export class AppModule {}
